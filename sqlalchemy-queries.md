@@ -1,62 +1,69 @@
-### EQUALS:
+### EQUALS
 ```
-query.filter(Language.name == 'python')
-```
-
-### NOT EQUALS:
-```
-query.filter(Language.name != 'python')
+Language.query.filter(Language.name == 'python')
 ```
 
-### LIKE:
+### NOT EQUALS
 ```
-query.filter(Language.name.like('%py%'))
-```
-
-### IN:
-```
-query.filter(Language.name.in_(['python', 'java', 'javascript']))
-
-query.filter(Language.name.in_(session.query(Language.name).filter(Language.name.like('%py%'))))
+Language.query.filter(Language.name != 'python')
 ```
 
-### NOT IN:
+### LIKE
 ```
-query.filter(~Language.name.in_(['python', 'java', 'javascript']))
-```
-
-### IS NULL:
-```
-filter(Language.name == None)
+Language.query.filter(Language.name.like('%py%'))
 ```
 
-### IS NOT NULL:
+### IN
 ```
-filter(Language.name != None)
+Language.query.filter(Language.name.in_(['python', 'java', 'javascript']))
+
+Language.query.filter(Language.name.in_(session.query(Language.name).filter(Language.name.like('%py%'))))
 ```
 
-### AND:
+### NOT IN
+```
+Language.query.filter(~Language.name.in_(['python', 'java', 'javascript']))
+```
+
+### IS NULL
+```
+Language.filter(Language.name == None)
+```
+
+### IS NOT NULL
+```
+Language.filter(Language.name != None)
+```
+
+### AND
 ```
 from sqlalchemy import and_
-filter(and_(Language.name == 'python', Language.version == '3.7'))
+Language.filter(and_(Language.name == 'python', Language.version == '3.7'))
 
 #or, default without and_ method comma separated list of conditions are AND
 
-filter(Language.name == 'python', Language.version == '3.7')
+Language.filter(Language.name == 'python', Language.version == '3.7')
 ```
 
-### OR:
+### OR
 ```
 from sqlalchemy import or_
-filter(or_(Language.name == 'python', Language.name == 'java'))
+Language.filter(or_(Language.name == 'python', Language.name == 'java'))
 ```
 
 ### MULTIPLE FILTERING
 ```
-filter(Language.name == 'python').filter(User.version == '3.7')
+Language.filter(Language.name == 'python').filter(User.version == '3.7')
 ```
 
-### MATCH:
+### MATCH
 ```
-query.filter(Language.name.match('python'))
+Language.query.filter(Language.name.match('python'))
+```
+
+### RANDOM RECORD SELECTION
+```
+Language.query(Language).order_by(func.rand()).first()
+
+Language.query.filter(Language.version.like("%3%")).order_by(func.rand()).first()
 ```
