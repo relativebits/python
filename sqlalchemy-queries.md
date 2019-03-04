@@ -6,31 +6,29 @@ query.filter(Language.name == 'python')
 
 query.filter(Language.name != 'python')
 
-LIKE:
+### LIKE:
 
 query.filter(Language.name.like('%py%'))
 
-IN:
+### IN:
 
 query.filter(Language.name.in_(['python', 'java', 'javascript']))
 
-# works with query objects too:
-
 query.filter(Language.name.in_(session.query(Language.name).filter(Language.name.like('%py%'))))
 
-NOT IN:
+### NOT IN:
 
 query.filter(~Language.name.in_(['python', 'java', 'javascript']))
 
-IS NULL:
+### IS NULL:
 
 filter(Language.name == None)
 
-IS NOT NULL:
+### IS NOT NULL:
 
 filter(Language.name != None)
 
-AND:
+### AND:
 
 from sqlalchemy import and_
 filter(and_(Language.name == 'python', Language.version == '3.7'))
@@ -39,7 +37,7 @@ filter(and_(Language.name == 'python', Language.version == '3.7'))
 
 filter(Language.name == 'python', Language.version == '3.7')
 
-# or call filter()/filter_by() multiple times
+# MULTIPLE FILTERING
 
 filter(Language.name == 'python').filter(User.version == '3.7')
 
