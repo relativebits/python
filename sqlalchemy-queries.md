@@ -66,7 +66,7 @@ session.query(Language).filter(or_(Language.name == 'python', Language.name == '
 
 ### MULTIPLE FILTERING
 ```
-session.query(Language).filter(Language.name == 'python').filter(User.version == '3.7')
+session.query(Language).filter(Language.name == 'python').filter(Language.version == '3.7')
 ```
 
 ### MATCH
