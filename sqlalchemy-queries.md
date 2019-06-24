@@ -1,4 +1,7 @@
 ```
+SQLALCHEMY_DATABASE_URI = 'sqlite:////' + os.path.join(app.root_path, 'fitnessade.db')
+SQLALCHEMY_DATABASE_URI = 'mysql://root:idiot@localhost/fitnessade?charset=utf8'
+    
 from sqlalchemy import Column, Integer, String
 from sqlalchemy.ext.declarative import declarative_base
 
