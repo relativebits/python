@@ -14,3 +14,8 @@ pip install pip-upgrader
 pip-upgrade
 ```
 https://github.com/simion/pip-upgrader
+
+# mac PostgreSQL
+```
+pip install psycopg2-binary
+```
