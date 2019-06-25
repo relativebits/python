@@ -1,19 +1,3 @@
-```
-SQLALCHEMY_DATABASE_URI = 'sqlite:////' + os.path.join(app.root_path, 'fitnessade.db')
-SQLALCHEMY_DATABASE_URI = 'mysql://root:idiot@localhost/fitnessade?charset=utf8'
-    
-from sqlalchemy import Column, Integer, String
-from sqlalchemy.ext.declarative import declarative_base
-
-Base = declarative_base()
-
-class Language(Base):
-    __tablename__ = 'language'
-    id = Column(Integer, primary_key=True)
-    name =  Column(String(50))
-    version =  Column(String(50))
-```
-
 ### EQUALS
 ```
 session.query(Language).filter(Language.name == 'python')
