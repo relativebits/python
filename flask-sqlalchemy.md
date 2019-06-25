@@ -26,3 +26,17 @@ class AbstractModel(db.Model):
     def __str__(self):
         return '{}({})'.format(self.__class__.__name__, self.column_values)
 ```        
+
+# Flask Configuration
+SQLite
+```
+SQLALCHEMY_DATABASE_URI = 'sqlite:////' + os.path.join(app.root_path, 'database.db')
+```
+MySQL
+```
+SQLALCHEMY_DATABASE_URI = 'mysql://user:password@host/database_name?charset=utf8'
+```
+PostgreSQL
+```
+SQLALCHEMY_DATABASE_URI = 'postgres://user:password@host/database_name'
+```
