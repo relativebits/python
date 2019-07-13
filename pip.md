@@ -1,3 +1,8 @@
+# virtualenv
+```
+virtualenv -p python3 envname
+```
+
 # install requirements.txt
 ```
 pip install -r /path/to/requirements.txt
