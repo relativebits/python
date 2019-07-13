@@ -3,6 +3,11 @@
 virtualenv -p python3 envname
 ```
 
+# upgrade pip
+```
+pip install --upgrade pip
+```
+
 # install requirements.txt
 ```
 pip install -r /path/to/requirements.txt
